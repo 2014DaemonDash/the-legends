@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 public class AddRoomActivity extends Activity {
+	public int player = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +16,7 @@ public class AddRoomActivity extends Activity {
 		setContentView(R.layout.activity_add_room);
 		
 		String roomHelp = "Room";
-		String player1Help = "Player 1";
+		String player1Help = "Player " + player;
 		
 		EditText roomName = (EditText) findViewById(R.id.room_name);
 		roomName.setHint(roomHelp);
@@ -32,6 +34,13 @@ public class AddRoomActivity extends Activity {
 	
 	public void addPlayer(View v) {
 		//add new EditText, move button down
+		EditText newPlayer = new EditText(this);
+		//newPlayer.setLayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+		player++;
+		newPlayer.setHint("Player " + player);
+		
+		RelativeLayout layout = (RelativeLayout)findViewById(R.id.RelativeLayout01);
+		layout.addView(newPlayer);
 	}
 
 }

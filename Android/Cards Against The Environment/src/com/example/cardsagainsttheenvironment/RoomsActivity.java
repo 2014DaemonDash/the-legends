@@ -2,6 +2,7 @@ package com.example.cardsagainsttheenvironment;
 
 import java.util.List;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -11,33 +12,60 @@ import com.parse.ParseUser;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class RoomsActivity extends Activity {
+	RoomsActivity ra = this;
+	LinearLayout ll;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rooms);
 		
-		ParseUser currentUser = ParseUser.getCurrentUser();
-		if (currentUser != null) {
-			List<String> rooms = (List<String>)currentUser.get("rooms");
-			
-			if(rooms != null && rooms.size() > 0) {
-				Log.d("Rooms", rooms.toString());
-				
-				for(int i = 0, size = rooms.size(); i < size; i++) {
-					//create room entries
-				}
-			}
-			
-			
-		} else {
-			// show the signup or login screen
-		}
+		ll = (LinearLayout)findViewById(R.id.LinearLayoutRooms);
+		
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Room");
+		query.findInBackground(new FindCallback<ParseObject>() {
+		    public void done(List<ParseObject> roomList, ParseException e) {
+		        if (e == null) {
+		        	if(roomList != null && roomList.size() > 0) {
+						Log.d("Rooms", roomList.toString());
+						
+						for(int i = 0, size = roomList.size(); i < size; i++) {
+							//create room entries
+							LinearLayout newRoom = new LinearLayout(ra);
+							newRoom.setOrientation(LinearLayout.VERTICAL);
+							
+							LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(300, 100);
+							params.setMargins(0, 0, 0, 30);
+							newRoom.setLayoutParams(params);
+							newRoom.setGravity(Gravity.CENTER);
+							newRoom.setBackgroundColor(Color.LTGRAY);
+							
+							TextView titleView = new TextView(ra);
+					        titleView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+					        titleView.setClickable(true);
+					        titleView.setText(roomList.get(i).getString("name"));
+					        
+					        newRoom.addView(titleView);
+					        ll.addView(newRoom);
+						}
+					}
+		        } else {
+		            Log.d("Error", e.getMessage());
+		        }
+		    }
+		});
 		
 	}
 
