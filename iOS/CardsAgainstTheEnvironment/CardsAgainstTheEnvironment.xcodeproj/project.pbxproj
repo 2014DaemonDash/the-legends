@@ -12,6 +12,7 @@
 		0B2648DD19C531B200049CCC /* EarthIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B2648DC19C531B200049CCC /* EarthIcon.png */; };
 		0B2648E019C535F300049CCC /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2648DF19C535F300049CCC /* RoomViewController.m */; };
 		0B2648E219C53D3A00049CCC /* Grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0B2648E119C53D3A00049CCC /* Grass.jpg */; };
+		0B2648E519C547E500049CCC /* PickWhiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2648E419C547E500049CCC /* PickWhiteViewController.m */; };
 		0BA61DE719C4DFF900184149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DE619C4DFF900184149 /* Foundation.framework */; };
 		0BA61DE919C4DFF900184149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DE819C4DFF900184149 /* CoreGraphics.framework */; };
 		0BA61DEB19C4DFF900184149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DEA19C4DFF900184149 /* UIKit.framework */; };
@@ -41,6 +42,7 @@
 		0BA61E3519C4E90800184149 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61E3419C4E90800184149 /* libz.dylib */; };
 		0BA61E3719C4E90D00184149 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61E3619C4E90D00184149 /* CoreLocation.framework */; };
 		0BA61E3E19C4F08C00184149 /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA61E3D19C4F08C00184149 /* RoomsViewController.m */; };
+		0BA9BF4219C54D0300A89AFC /* WhiteCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9BF4119C54D0300A89AFC /* WhiteCard.m */; };
 		0BB821CE19C4F160002CA6C2 /* RoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB821CD19C4F160002CA6C2 /* RoomCell.m */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		0B2648DE19C535F300049CCC /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		0B2648DF19C535F300049CCC /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		0B2648E119C53D3A00049CCC /* Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Grass.jpg; sourceTree = "<group>"; };
+		0B2648E319C547E500049CCC /* PickWhiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickWhiteViewController.h; sourceTree = "<group>"; };
+		0B2648E419C547E500049CCC /* PickWhiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickWhiteViewController.m; sourceTree = "<group>"; };
 		0BA61DE319C4DFF900184149 /* CardsAgainstTheEnvironment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsAgainstTheEnvironment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA61DE619C4DFF900184149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0BA61DE819C4DFF900184149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +103,8 @@
 		0BA61E3619C4E90D00184149 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0BA61E3C19C4F08C00184149 /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsViewController.h; sourceTree = "<group>"; };
 		0BA61E3D19C4F08C00184149 /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsViewController.m; sourceTree = "<group>"; };
+		0BA9BF4019C54D0300A89AFC /* WhiteCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteCard.h; sourceTree = "<group>"; };
+		0BA9BF4119C54D0300A89AFC /* WhiteCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteCard.m; sourceTree = "<group>"; };
 		0BB821CC19C4F160002CA6C2 /* RoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCell.h; sourceTree = "<group>"; };
 		0BB821CD19C4F160002CA6C2 /* RoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +247,8 @@
 				0B2648D319C5087100049CCC /* CreateGameViewController.m */,
 				0B2648DE19C535F300049CCC /* RoomViewController.h */,
 				0B2648DF19C535F300049CCC /* RoomViewController.m */,
+				0B2648E319C547E500049CCC /* PickWhiteViewController.h */,
+				0B2648E419C547E500049CCC /* PickWhiteViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -252,6 +260,8 @@
 				0BB821CD19C4F160002CA6C2 /* RoomCell.m */,
 				0B2648D519C511D100049CCC /* textEntryCell.h */,
 				0B2648D619C511D100049CCC /* textEntryCell.m */,
+				0BA9BF4019C54D0300A89AFC /* WhiteCard.h */,
+				0BA9BF4119C54D0300A89AFC /* WhiteCard.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -357,11 +367,13 @@
 			files = (
 				0BA61DFD19C4DFF900184149 /* ViewController.m in Sources */,
 				0B2648E019C535F300049CCC /* RoomViewController.m in Sources */,
+				0BA9BF4219C54D0300A89AFC /* WhiteCard.m in Sources */,
 				0B2648D719C511D100049CCC /* textEntryCell.m in Sources */,
 				0BA61DF719C4DFF900184149 /* AppDelegate.m in Sources */,
 				0BA61E3E19C4F08C00184149 /* RoomsViewController.m in Sources */,
 				0BA61DF319C4DFF900184149 /* main.m in Sources */,
 				0BB821CE19C4F160002CA6C2 /* RoomCell.m in Sources */,
+				0B2648E519C547E500049CCC /* PickWhiteViewController.m in Sources */,
 				0B2648D419C5087100049CCC /* CreateGameViewController.m in Sources */,
 				0BA61E2319C4E71100184149 /* RegisterViewController.m in Sources */,
 			);
@@ -488,6 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dom Ong (Q7WQB9N9C8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -505,6 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dom Ong (Q7WQB9N9C8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -521,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CardsAgainstTheEnvironment.app/CardsAgainstTheEnvironment";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dom Ong (Q7WQB9N9C8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -543,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CardsAgainstTheEnvironment.app/CardsAgainstTheEnvironment";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dom Ong (Q7WQB9N9C8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

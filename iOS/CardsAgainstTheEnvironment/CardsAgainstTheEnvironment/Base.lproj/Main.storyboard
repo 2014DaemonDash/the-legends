@@ -407,10 +407,10 @@
             </objects>
             <point key="canvasLocation" x="1606" y="-221"/>
         </scene>
-        <!--View Controller - Pick a Card-->
+        <!--Pick White View Controller - Pick a Card-->
         <scene sceneID="EOg-Ne-fRG">
             <objects>
-                <viewController id="iTY-yk-Bk1" sceneMemberID="viewController">
+                <viewController id="iTY-yk-Bk1" customClass="PickWhiteViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IKc-tA-EOX"/>
                         <viewControllerLayoutGuide type="bottom" id="4rE-1E-Icu"/>
@@ -419,45 +419,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView appearanceType="aqua" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i17-kC-jpR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <scrollView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjj-83-yJf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="451"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.17254901959999999" green="0.7725490196" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SF0-Oy-JaT">
-                                    <size key="itemSize" width="263" height="433"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6hA-Zu-6l8">
-                                        <rect key="frame" x="20" y="64" width="280" height="390"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="390"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <size key="customSize" width="280" height="390"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="corner.layerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            </scrollView>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efr-HZ-arH">
+                                <rect key="frame" x="20" y="459" width="280" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Pick This Card">
+                                    <color key="titleColor" red="0.17254901959999999" green="0.7725490196" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pickCard:" destination="iTY-yk-Bk1" eventType="touchUpInside" id="Bhn-Tz-oDx"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kf-2v-EfS">
+                                <rect key="frame" x="116" y="518" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="iTY-yk-Bk1" eventType="touchUpInside" id="rQh-Xg-lAo"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.7725490196" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pick a Card" id="DWN-Hy-yyI">
                         <barButtonItem key="rightBarButtonItem" title="Choose" id="cIG-dc-NGQ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="handScrollView" destination="fjj-83-yJf" id="dQa-do-oJY"/>
+                        <outlet property="pickCardButton" destination="Efr-HZ-arH" id="xXy-dC-TeQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QtO-Qc-yp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976" y="155"/>
+            <point key="canvasLocation" x="2040" y="478"/>
         </scene>
         <!--Room View Controller - Room Name-->
         <scene sceneID="WfP-2X-JA2">
@@ -499,13 +507,17 @@
                         <color key="backgroundColor" red="0.17254901959999999" green="0.7725490196" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Room Name" id="bXH-2a-EfZ">
-                        <barButtonItem key="rightBarButtonItem" title="Pick" id="z2B-s3-xxf"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ygD-qk-CdJ"/>
+                        <barButtonItem key="rightBarButtonItem" title="View" id="z2B-s3-xxf">
+                            <connections>
+                                <segue destination="iTY-yk-Bk1" kind="modal" id="4GU-pD-2qv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="blackCardView" destination="rPa-TP-eJ4" id="xO3-Dd-guH"/>
                         <outlet property="judgingButton" destination="pNB-sO-YoU" id="hqw-2c-Cb5"/>
                         <outlet property="pickButton" destination="z2B-s3-xxf" id="6rS-0o-if2"/>
-                        <segue destination="iTY-yk-Bk1" kind="push" id="QGZ-62-Wya"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCT-7L-LpF" userLabel="First Responder" sceneMemberID="firstResponder"/>

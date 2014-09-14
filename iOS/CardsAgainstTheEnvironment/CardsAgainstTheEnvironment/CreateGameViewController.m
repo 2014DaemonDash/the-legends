@@ -87,9 +87,12 @@
         }
     }
     if([_playerNames count] == numPlayers){
+        NSDictionary *player = @{@"cardsInHand":@"0",@"points":@"0",@"userId":_user.username};
+        [_playerNames addObject:player];
         room[@"players"] = _playerNames;
         room[@"currentPlayer"] = _user.username;
         room[@"currentJudge"] = _user.username;
+        room[@"currentBlackCard"] = [NSNumber numberWithInt:-1];
         PFQuery *whiteQuery = [PFQuery queryWithClassName:@"WhiteCards"];
         PFQuery *blackQuery = [PFQuery queryWithClassName:@"BlackCards"];
         [whiteQuery findObjectsInBackgroundWithBlock:^(NSArray *whiteCards, NSError *error) {
@@ -105,25 +108,24 @@
                 }
                 room[@"blackDeck"] = blackDeck;
                 
+                NSMutableArray *allPlayers = [[NSMutableArray alloc] init];
                 PFACL *defaultACL = [PFACL ACL];
                 [defaultACL setPublicReadAccess:NO];
                 for(NSDictionary *player in _playerNames){
                     PFQuery *userQuery = [PFUser query];
+                    [allPlayers addObject:[player objectForKey:@"userId"]];
                     [userQuery whereKey:@"username" equalTo:[player objectForKey:@"userId"]];
                     PFUser *playerUser = [[userQuery findObjects] firstObject];
                     [defaultACL setReadAccess:YES forUser:playerUser];
+                    [defaultACL setWriteAccess:YES forUser:playerUser];
                 }
                 [defaultACL setReadAccess:YES forUser:_user];
+                [defaultACL setWriteAccess:YES forUser:_user];
+
                 [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
                 [room setACL:defaultACL];
                 [room saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    NSDictionary *roomInfo = @{@"roomId":[room objectId], @"roomName":room[@"name"]};
-                                        [_user[@"rooms"] addObject:roomInfo];
-                    [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                        if(succeeded){
-                            [self dismissViewControllerAnimated:YES completion:nil];
-                        }
-                    }];
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 }];
             }];
         }];
