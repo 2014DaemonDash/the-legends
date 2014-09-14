@@ -73,8 +73,8 @@
             card.backgroundColor = [UIColor whiteColor];
 
             if([_type isEqualToString:@"judge"]){
-                [myLabel setTextColor:[UIColor whiteColor]];
-                card.backgroundColor = [UIColor blackColor];
+                [myLabel setTextColor:[self.view backgroundColor]];
+                card.backgroundColor = [UIColor whiteColor];
             }
             [myLabel setLineBreakMode:NSLineBreakByWordWrapping];
             //[myLabel setBackgroundColor:[UIColor orangeColor]];
@@ -211,6 +211,7 @@
         [_room[@"players"] replaceObjectAtIndex:playerNum withObject:player];
         NSMutableArray *remainingPlayers = [_room[@"remainingPlayers"] mutableCopy];
         [remainingPlayers removeObject:_user.username];
+        _room[@"remainingPlayers"] = remainingPlayers;
         // Choose next player
         if([remainingPlayers count] > 0){
             _room[@"currentPlayer"] = [remainingPlayers firstObject];

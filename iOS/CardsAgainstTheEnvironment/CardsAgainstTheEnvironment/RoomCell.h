@@ -10,5 +10,6 @@
 
 @interface RoomCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *roomNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *turnLabel;
 
 @end

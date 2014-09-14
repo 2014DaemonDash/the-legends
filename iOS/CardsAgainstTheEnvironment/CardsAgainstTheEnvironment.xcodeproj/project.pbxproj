@@ -13,6 +13,7 @@
 		0B2648E019C535F300049CCC /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2648DF19C535F300049CCC /* RoomViewController.m */; };
 		0B2648E219C53D3A00049CCC /* Grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0B2648E119C53D3A00049CCC /* Grass.jpg */; };
 		0B2648E519C547E500049CCC /* PickWhiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2648E419C547E500049CCC /* PickWhiteViewController.m */; };
+		0B71091D19C5EDC8000FBCF7 /* poop.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B71091C19C5EDC8000FBCF7 /* poop.png */; };
 		0BA61DE719C4DFF900184149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DE619C4DFF900184149 /* Foundation.framework */; };
 		0BA61DE919C4DFF900184149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DE819C4DFF900184149 /* CoreGraphics.framework */; };
 		0BA61DEB19C4DFF900184149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DEA19C4DFF900184149 /* UIKit.framework */; };
@@ -67,6 +68,7 @@
 		0B2648E119C53D3A00049CCC /* Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Grass.jpg; sourceTree = "<group>"; };
 		0B2648E319C547E500049CCC /* PickWhiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickWhiteViewController.h; sourceTree = "<group>"; };
 		0B2648E419C547E500049CCC /* PickWhiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickWhiteViewController.m; sourceTree = "<group>"; };
+		0B71091C19C5EDC8000FBCF7 /* poop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poop.png; sourceTree = "<group>"; };
 		0BA61DE319C4DFF900184149 /* CardsAgainstTheEnvironment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsAgainstTheEnvironment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA61DE619C4DFF900184149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0BA61DE819C4DFF900184149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,6 +153,7 @@
 			children = (
 				0B2648DC19C531B200049CCC /* EarthIcon.png */,
 				0B2648E119C53D3A00049CCC /* Grass.jpg */,
+				0B71091C19C5EDC8000FBCF7 /* poop.png */,
 				0BA61DEC19C4DFF900184149 /* CardsAgainstTheEnvironment */,
 				0BA61E0B19C4DFF900184149 /* CardsAgainstTheEnvironmentTests */,
 				0BA61DE519C4DFF900184149 /* Frameworks */,
@@ -347,6 +350,7 @@
 				0BA61DF119C4DFF900184149 /* InfoPlist.strings in Resources */,
 				0BA61DFA19C4DFF900184149 /* Main.storyboard in Resources */,
 				0B2648E219C53D3A00049CCC /* Grass.jpg in Resources */,
+				0B71091D19C5EDC8000FBCF7 /* poop.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

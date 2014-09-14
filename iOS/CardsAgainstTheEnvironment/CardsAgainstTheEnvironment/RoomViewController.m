@@ -54,7 +54,7 @@
                 CGRect labelFrame = CGRectMake(20, 20, 240, 150);
                 _blackContent = [[UILabel alloc] initWithFrame:labelFrame];
                 [_blackContent setText:labelText];
-                [_blackContent setFont:[UIFont fontWithName:@"Helvetica Bold" size:36]];
+                [_blackContent setFont:[UIFont fontWithName:@"Helvetica Bold" size:34]];
                 [_blackContent setTextColor:[UIColor whiteColor]];
                 [_blackContent setLineBreakMode:NSLineBreakByWordWrapping];
                 [_blackContent setText:labelText];
@@ -62,6 +62,14 @@
                 // Tell the label to use an unlimited number of lines
                 [_blackContent setNumberOfLines:0];
                 [_blackContent sizeToFit];
+                if(_blackContent.frame.size.height > 370){
+                    [_blackContent setFont:[UIFont fontWithName:@"Helvetica Bold" size:30]];
+                    [_blackContent sizeToFit];
+                }
+                if(_blackContent.frame.size.height > 370){
+                    [_blackContent setFont:[UIFont fontWithName:@"Helvetica Bold" size:28]];
+                    [_blackContent sizeToFit];
+                }
                 [_blackCardView addSubview:_blackContent];
             }
         }];
@@ -96,7 +104,7 @@
     return card;
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)loadDesign{
     NSLog(@"User: %@",[_user description]);
     if([_user.username isEqualToString:_room[@"currentJudge"]]){
         // Judge related methods
@@ -131,6 +139,10 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self loadDesign];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     NSString *username = _user.username;
     PickWhiteViewController *vc = (PickWhiteViewController *)[segue destinationViewController];
@@ -147,6 +159,13 @@
     vc.blackContent = [[NSString alloc] initWithString:_blackContent.text];
     vc.user = _user;
     vc.room = _room;
+}
+- (IBAction)refreshLayout:(id)sender {
+    PFQuery *room = [PFQuery queryWithClassName:@"Room"];
+    [room whereKey:@"objectId" equalTo:_room.objectId];
+    _room = [[room findObjects] firstObject];
+    [self updateBlackCard];
+    [self loadDesign];
 }
 
 @end

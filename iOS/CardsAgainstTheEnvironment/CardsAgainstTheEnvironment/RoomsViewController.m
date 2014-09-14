@@ -64,6 +64,15 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RoomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Room" forIndexPath:indexPath];
     [cell.roomNameLabel setText:[[_roomList objectAtIndex:indexPath.row] objectForKey:@"name"]];
+    NSString *turnText;
+    if([_user.username isEqualToString:[[_roomList objectAtIndex:indexPath.row] objectForKey:@"currentPlayer"]]){
+        [cell.turnLabel setTextColor:[UIColor redColor]];
+        turnText = @"Your Turn!";
+    }else{
+        [cell.turnLabel setTextColor:[UIColor blackColor]];
+        turnText = [NSString stringWithFormat:@"%@'s Turn",[[_roomList objectAtIndex:indexPath.row] objectForKey:@"currentPlayer"]];
+    }
+    [cell.turnLabel setText: turnText];
     return cell;
 }
 
