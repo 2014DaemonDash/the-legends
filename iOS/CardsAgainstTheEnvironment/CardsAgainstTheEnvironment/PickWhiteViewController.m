@@ -102,6 +102,11 @@
             [myLabel sizeToFit];
             
             [card addSubview:myLabel];
+            CGRect logoFrame = CGRectMake(220, 330, 50, 50);
+            UIImage *logo = [UIImage imageNamed:@"poop.png"];
+            UIImageView *logoView = [[UIImageView alloc] initWithFrame:logoFrame];
+            [logoView setImage:logo];
+            [card addSubview:logoView];
             
             [subview addSubview:card];
             //subview.backgroundColor = [colors objectAtIndex:i];
