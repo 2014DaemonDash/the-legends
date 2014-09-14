@@ -7,11 +7,15 @@
     <string name="login_button">Log In</string>
     <string name="register_button">Register</string>
     <string name="play_button">Play!</string>
+    <string name="add_room_button">Add Room</string>
+    <string name="add_player_button">Add Player</string>
+    <string name="done_button">Done</string>
     <string name="title_activity_launcher">LauncherActivity</string>
 
     <color name="green">#2ECC71</color>
 
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_rooms">RoomsActivity</string>
+    <string name="title_activity_add_room">AddRoomActivity</string>
 
 </resources>

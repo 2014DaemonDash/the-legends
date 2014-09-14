@@ -7,10 +7,10 @@
     <uses-sdk
         android:minSdkVersion="17"
         android:targetSdkVersion="18" />
-
+    
     <uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -31,13 +31,15 @@
         </activity>
         <activity
             android:name="com.example.cardsagainsttheenvironment.RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:parentActivityName="com.example.cardsagainsttheenvironment.LoginActivity" >
+            android:label="@string/title_activity_register" >
         </activity>
         <activity
             android:name="com.example.cardsagainsttheenvironment.RoomsActivity"
-            android:label="@string/title_activity_rooms"
-            android:parentActivityName="com.example.cardsagainsttheenvironment.LoginActivity" >
+            android:label="@string/title_activity_rooms" >
+        </activity>
+        <activity
+            android:name="com.example.cardsagainsttheenvironment.AddRoomActivity"
+            android:label="@string/title_activity_add_room" >
         </activity>
     </application>
 

@@ -34,6 +34,10 @@
             android:name="com.example.cardsagainsttheenvironment.RoomsActivity"
             android:label="@string/title_activity_rooms" >
         </activity>
+        <activity
+            android:name="com.example.cardsagainsttheenvironment.AddRoomActivity"
+            android:label="@string/title_activity_add_room" >
+        </activity>
     </application>
 
 </manifest>
