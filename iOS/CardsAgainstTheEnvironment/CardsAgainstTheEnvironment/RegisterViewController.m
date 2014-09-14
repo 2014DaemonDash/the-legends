@@ -32,6 +32,20 @@
     [_emailField resignFirstResponder];
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if([textField isEqual:_usernameField]){
+        [_usernameField resignFirstResponder];
+        [_passwordField becomeFirstResponder];
+    }else if([textField isEqual:_passwordField]){
+        [_passwordField resignFirstResponder];
+        [_emailField becomeFirstResponder];
+    }else{
+        [_emailField resignFirstResponder];
+        [self hideKeyboard];
+    }
+    return YES;
+}
+
 - (IBAction)signup:(id)sender {
     PFUser *newUser = [PFUser user];
     newUser.username = _usernameField.text;
