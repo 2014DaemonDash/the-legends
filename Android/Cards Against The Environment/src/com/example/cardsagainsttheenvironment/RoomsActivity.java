@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -56,6 +57,14 @@ public class RoomsActivity extends Activity {
 					        titleView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 					        titleView.setClickable(true);
 					        titleView.setText(roomList.get(i).getString("name"));
+					        titleView.setOnClickListener(new OnClickListener() {
+		                        @Override
+		                        public void onClick(View arg0) {
+		                          /*Intent browserIntent = 
+		                            new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.howtosolvenow.com"));
+		                            startActivity(browserIntent);*/
+		                        }
+					        });
 					        
 					        newRoom.addView(titleView);
 					        ll.addView(newRoom);

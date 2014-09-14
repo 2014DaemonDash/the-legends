@@ -28,11 +28,11 @@ public final class R {
         public static final int ic_launcher_big=0x7f020001;
     }
     public static final class id {
+        public static final int LinearLayout01=0x7f090004;
         public static final int LinearLayoutRooms=0x7f090012;
-        public static final int RelativeLayout01=0x7f090003;
-        public static final int ScrollView01=0x7f090002;
+        public static final int ScrollView01=0x7f090003;
         public static final int action_settings=0x7f090013;
-        public static final int add_player_button=0x7f090005;
+        public static final int add_player_button=0x7f090002;
         public static final int add_room_button=0x7f090011;
         public static final int done_button=0x7f090006;
         public static final int email=0x7f09000f;
@@ -41,7 +41,7 @@ public final class R {
         public static final int password=0x7f09000a;
         public static final int password_register=0x7f09000e;
         public static final int play_button=0x7f090010;
-        public static final int player1=0x7f090004;
+        public static final int player1=0x7f090005;
         public static final int register_button=0x7f09000c;
         public static final int room_name=0x7f090001;
         public static final int textView1=0x7f090000;
