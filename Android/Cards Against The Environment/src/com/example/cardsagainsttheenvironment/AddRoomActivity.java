@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -13,6 +14,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -34,6 +36,7 @@ public class AddRoomActivity extends Activity {
 	List<Integer> whiteCards;
 	ParseObject newRoom;
 	List<ParseUser> globalUserList = new ArrayList<ParseUser>();
+	AddRoomActivity ara = this;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -168,6 +171,11 @@ public class AddRoomActivity extends Activity {
 						            	            ParseACL.setDefaultACL(defaultACL, false);
 						            	            Log.d("New Room",newRoom.toString());
 						            	            newRoom.saveInBackground();
+						            	            
+						            	            Intent i = new Intent(ara, RoomViewActivity.class);
+						            	            i.putExtra("isJudge", true);
+						            	            
+						            	            startActivity(i);
 						            	        } else {
 						            	            Log.d("score", "Error: " + e.getMessage());
 						            	        }

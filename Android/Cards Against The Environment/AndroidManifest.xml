@@ -38,6 +38,14 @@
             android:name="com.example.cardsagainsttheenvironment.AddRoomActivity"
             android:label="@string/title_activity_add_room" >
         </activity>
+        <activity
+            android:name="com.example.cardsagainsttheenvironment.RoomViewActivity"
+            android:label="@string/title_activity_room_view" >
+        </activity>
+        <activity
+            android:name="com.example.cardsagainsttheenvironment.PickWhiteActivity"
+            android:label="@string/title_activity_pick_white" >
+        </activity>
     </application>
 
 </manifest>

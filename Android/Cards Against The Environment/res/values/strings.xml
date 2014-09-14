@@ -10,6 +10,9 @@
     <string name="add_room_button">Add Room</string>
     <string name="add_player_button">Add Player</string>
     <string name="done_button">Done</string>
+    <string name="default_black_card">Card Not Chosen</string>
+    <string name="judge_button">Judge</string>
+    <string name="choose_button">Choose card</string>
     <string name="title_activity_launcher">LauncherActivity</string>
 
     <color name="green">#2ECC71</color>
@@ -17,5 +20,7 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_rooms">RoomsActivity</string>
     <string name="title_activity_add_room">AddRoomActivity</string>
+    <string name="title_activity_room_view">RoomViewActivity</string>
+    <string name="title_activity_pick_white">PickWhiteActivity</string>
 
 </resources>

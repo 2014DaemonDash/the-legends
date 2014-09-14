@@ -1,19 +1,14 @@
 package com.example.cardsagainsttheenvironment;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import com.parse.FindCallback;
-import com.parse.GetCallback;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-import com.parse.ParseUser;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -21,12 +16,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.parse.FindCallback;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 
 public class RoomsActivity extends Activity {
 	RoomsActivity ra = this;
 	LinearLayout ll;
+	List<ParseObject> globalRoomList;
+	Map<LinearLayout, Integer> linearLayouts = new HashMap<LinearLayout,Integer>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +39,15 @@ public class RoomsActivity extends Activity {
 		
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Room");
 		query.findInBackground(new FindCallback<ParseObject>() {
-		    public void done(List<ParseObject> roomList, ParseException e) {
+		    @Override
+			public void done(List<ParseObject> roomList, ParseException e) {
 		        if (e == null) {
 		        	if(roomList != null && roomList.size() > 0) {
 						Log.d("Rooms", roomList.toString());
+						globalRoomList = roomList;
 						
 						for(int i = 0, size = roomList.size(); i < size; i++) {
+							
 							//create room entries
 							LinearLayout newRoom = new LinearLayout(ra);
 							newRoom.setOrientation(LinearLayout.VERTICAL);
@@ -56,13 +61,33 @@ public class RoomsActivity extends Activity {
 							TextView titleView = new TextView(ra);
 					        titleView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 					        titleView.setClickable(true);
-					        titleView.setText(roomList.get(i).getString("name"));
-					        titleView.setOnClickListener(new OnClickListener() {
+					        titleView.setText(globalRoomList.get(i).getString("name"));
+					        
+					        linearLayouts.put(newRoom, i);
+					        
+					        newRoom.setOnClickListener(new OnClickListener() {
 		                        @Override
 		                        public void onClick(View arg0) {
-		                          /*Intent browserIntent = 
-		                            new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.howtosolvenow.com"));
-		                            startActivity(browserIntent);*/
+		                        	Log.d("Clicked", arg0.toString());
+		                        	LinearLayout l = (LinearLayout)arg0;
+		                        	
+		                        	Intent i = new Intent(ra, RoomViewActivity.class);
+		                        	Log.d("linearLayout", linearLayouts.get(l) + "");
+		                        	
+		                        	ParseUser currentUser = ParseUser.getCurrentUser();
+		                        	if (currentUser != null) {
+		                        		String currJudge = globalRoomList.get(linearLayouts.get(l)).getString("currentJudge");
+			                        	Log.d("currJudge in room", currJudge);
+			                        	
+			                        	boolean isJudge = currJudge.equals(currentUser.getUsername());
+			                        	Log.d("isJudge", isJudge + "");
+			                        	
+			                        	i.putExtra("isJudge", isJudge);
+			                            startActivity(i);
+		                        	} else {
+		                        		Log.d("Error", "");
+		                        	}
+		                        	
 		                        }
 					        });
 					        
