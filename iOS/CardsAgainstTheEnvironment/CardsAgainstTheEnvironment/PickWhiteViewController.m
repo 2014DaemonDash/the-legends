@@ -164,39 +164,44 @@
         PFQuery *pushQuery = [PFInstallation query];
         [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
         
-        // Send push notification to query
-        [PFPush sendPushMessageToQueryInBackground:pushQuery
-                                       withMessage:[NSString stringWithFormat:@"%@ won the round",winningUser]];
-        NSMutableArray *players = [_room[@"players"] mutableCopy];
-        for(int i = 0; i < players.count; i++){
-            if([[[players objectAtIndex:i] objectForKey:@"userId"] isEqualToString:winningUser]){
-                NSMutableDictionary *player = [[players objectAtIndex:i] mutableCopy];
-                NSInteger pts = [[player objectForKey:@"points"] integerValue];
-                pts++;
-                [player setObject:[NSNumber numberWithInteger:pts] forKey:@"points"];
-                [players replaceObjectAtIndex:i withObject:player];
+        PFQuery *tipQuery = [PFQuery queryWithClassName:@"Tips"];
+        [tipQuery findObjectsInBackgroundWithBlock:^(NSArray *tips, NSError *error) {
+            int r = arc4random_uniform(tips.count);
+            NSString *tip = [[NSString alloc] initWithString:[[tips objectAtIndex:r] objectForKey:@"tipContent"]];
+            // Send push notification to query
+            [PFPush sendPushMessageToQueryInBackground:pushQuery
+                                           withMessage:[NSString stringWithFormat:@"%@ won the round \n\nEcoTip: %@",winningUser,tip]];
+            NSMutableArray *players = [_room[@"players"] mutableCopy];
+            for(int i = 0; i < players.count; i++){
+                if([[[players objectAtIndex:i] objectForKey:@"userId"] isEqualToString:winningUser]){
+                    NSMutableDictionary *player = [[players objectAtIndex:i] mutableCopy];
+                    NSInteger pts = [[player objectForKey:@"points"] integerValue];
+                    pts++;
+                    [player setObject:[NSNumber numberWithInteger:pts] forKey:@"points"];
+                    [players replaceObjectAtIndex:i withObject:player];
+                }
             }
-        }
-        [_room[@"judgePool"] removeObject:_room[@"currentJudge"]];
-        // Check if judge pool is empty
-        if([_room[@"judgePool"] count] == 0){
-            // Reset judge list
-            NSMutableArray *playerPool = [[NSMutableArray alloc] init];
-            for(NSDictionary *player in _room[@"players"]){
-                [playerPool addObject:[player objectForKey:@"userId"]];
+            [_room[@"judgePool"] removeObject:_room[@"currentJudge"]];
+            // Check if judge pool is empty
+            if([_room[@"judgePool"] count] == 0){
+                // Reset judge list
+                NSMutableArray *playerPool = [[NSMutableArray alloc] init];
+                for(NSDictionary *player in _room[@"players"]){
+                    [playerPool addObject:[player objectForKey:@"userId"]];
+                }
+                _room[@"judgePool"] = playerPool;
             }
-            _room[@"judgePool"] = playerPool;
-        }
-        // Pick next Judge
-        _room[@"currentJudge"] = [_room[@"judgePool"] firstObject];
-        _room[@"currentPlayer"] = _room[@"currentJudge"];
-        _room[@"currentBlackCard"] = [NSNumber numberWithInteger:-1];
-        [_room saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if(succeeded){
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }];
+            // Pick next Judge
+            _room[@"currentJudge"] = [_room[@"judgePool"] firstObject];
+            _room[@"currentPlayer"] = _room[@"currentJudge"];
+            _room[@"currentBlackCard"] = [NSNumber numberWithInteger:-1];
+            [_room saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if(succeeded){
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
 
+        }];
     }else{
         NSDictionary *playedCard = @{@"cardId":[_cards objectAtIndex:page], @"userId":_user.username};
         NSMutableArray *playedPool = [_room[@"playingCardPool"] mutableCopy];
