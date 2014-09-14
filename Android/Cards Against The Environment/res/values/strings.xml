@@ -13,6 +13,7 @@
     <string name="default_black_card">Card Not Chosen</string>
     <string name="judge_button">Judge</string>
     <string name="choose_button">Choose card</string>
+    <string name="play_card_button">Play Card</string>
     <string name="title_activity_launcher">LauncherActivity</string>
 
     <color name="green">#2ECC71</color>

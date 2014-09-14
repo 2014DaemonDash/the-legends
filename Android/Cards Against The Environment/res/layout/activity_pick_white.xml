@@ -6,11 +6,77 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/green"
     tools:context=".PickWhiteActivity" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textView1"
+        android:layout_above="@+id/play_card_button"
+         >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/green" >
+            
+            <RelativeLayout
+		        android:id="@+id/Card1"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_marginRight="15dp"
+		        android:background="@drawable/white_background_list" >
+		        
+			   	<TextView
+					android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:gravity="center"
+				    android:layout_centerInParent="true"
+				    android:layout_margin="15dp"
+				    android:padding="15dp"
+				    android:textSize="20sp"
+				    android:text="@string/default_black_card"/>
+		        
+		    </RelativeLayout>
+		    
+            <RelativeLayout
+		        android:id="@+id/Card2"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:background="@drawable/white_background_list" >
+		        
+			   	<TextView
+					android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:gravity="center"
+				    android:layout_centerInParent="true"
+				    android:layout_margin="15dp"
+				    android:padding="15dp"
+				    android:textSize="20sp"
+				    android:text="@string/default_black_card"/>
+		        
+		    </RelativeLayout>
+            
+        </LinearLayout>
+    </HorizontalScrollView>
+    
+    <Button
+        android:id="@+id/play_card_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/play_card_button"
+        android:onClick="playCard" />
 
 </RelativeLayout>

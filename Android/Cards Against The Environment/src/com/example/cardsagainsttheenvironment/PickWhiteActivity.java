@@ -3,6 +3,7 @@ package com.example.cardsagainsttheenvironment;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.Button;
 
 public class PickWhiteActivity extends Activity {
 
@@ -10,6 +11,12 @@ public class PickWhiteActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pick_white);
+		
+		Button play = (Button) findViewById(R.id.play_card_button);
+		play.setEnabled(false);
+		
+		//select white cards
+		
 	}
 
 	@Override
