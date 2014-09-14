@@ -9,12 +9,13 @@
 #import "RoomsViewController.h"
 #import "RoomCell.h"
 #import "CreateGameViewController.h"
-
+#import "RoomViewController.h"
 @interface RoomsViewController()
 @property (strong, nonatomic) NSMutableArray *roomList;
 @end
 
 @implementation RoomsViewController{
+    PFObject *room;
 }
 
 
@@ -44,6 +45,11 @@
     return UIEdgeInsetsMake(15, 20, 15, 20);
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    room = [_roomList objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"ShowRoom" sender:self];
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RoomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Room" forIndexPath:indexPath];
     [cell.roomNameLabel setText:[[_roomList objectAtIndex:indexPath.row] objectForKey:@"name"]];
@@ -54,6 +60,10 @@
     if([[segue identifier] isEqualToString:@"Add"]){
         CreateGameViewController *vc = (CreateGameViewController *)[segue destinationViewController];
         vc.user = _user;
+    }else if ([[segue identifier] isEqualToString:@"ShowRoom"]){
+        RoomViewController *vc = (RoomViewController *)[segue destinationViewController];
+        vc.user = _user;
+        vc.room = room;
     }
 }
 

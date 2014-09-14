@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0B2648D419C5087100049CCC /* CreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2648D319C5087100049CCC /* CreateGameViewController.m */; };
 		0B2648D719C511D100049CCC /* textEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2648D619C511D100049CCC /* textEntryCell.m */; };
+		0B2648DD19C531B200049CCC /* EarthIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B2648DC19C531B200049CCC /* EarthIcon.png */; };
+		0B2648E019C535F300049CCC /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2648DF19C535F300049CCC /* RoomViewController.m */; };
+		0B2648E219C53D3A00049CCC /* Grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0B2648E119C53D3A00049CCC /* Grass.jpg */; };
 		0BA61DE719C4DFF900184149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DE619C4DFF900184149 /* Foundation.framework */; };
 		0BA61DE919C4DFF900184149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DE819C4DFF900184149 /* CoreGraphics.framework */; };
 		0BA61DEB19C4DFF900184149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DEA19C4DFF900184149 /* UIKit.framework */; };
@@ -56,6 +59,10 @@
 		0B2648D319C5087100049CCC /* CreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGameViewController.m; sourceTree = "<group>"; };
 		0B2648D519C511D100049CCC /* textEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textEntryCell.h; sourceTree = "<group>"; };
 		0B2648D619C511D100049CCC /* textEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textEntryCell.m; sourceTree = "<group>"; };
+		0B2648DC19C531B200049CCC /* EarthIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EarthIcon.png; sourceTree = "<group>"; };
+		0B2648DE19C535F300049CCC /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		0B2648DF19C535F300049CCC /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		0B2648E119C53D3A00049CCC /* Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Grass.jpg; sourceTree = "<group>"; };
 		0BA61DE319C4DFF900184149 /* CardsAgainstTheEnvironment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsAgainstTheEnvironment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA61DE619C4DFF900184149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0BA61DE819C4DFF900184149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +143,8 @@
 		0BA61DDA19C4DFF900184149 = {
 			isa = PBXGroup;
 			children = (
+				0B2648DC19C531B200049CCC /* EarthIcon.png */,
+				0B2648E119C53D3A00049CCC /* Grass.jpg */,
 				0BA61DEC19C4DFF900184149 /* CardsAgainstTheEnvironment */,
 				0BA61E0B19C4DFF900184149 /* CardsAgainstTheEnvironmentTests */,
 				0BA61DE519C4DFF900184149 /* Frameworks */,
@@ -230,6 +239,8 @@
 				0BA61E3D19C4F08C00184149 /* RoomsViewController.m */,
 				0B2648D219C5087100049CCC /* CreateGameViewController.h */,
 				0B2648D319C5087100049CCC /* CreateGameViewController.m */,
+				0B2648DE19C535F300049CCC /* RoomViewController.h */,
+				0B2648DF19C535F300049CCC /* RoomViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -322,8 +333,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA61DFF19C4DFF900184149 /* Images.xcassets in Resources */,
+				0B2648DD19C531B200049CCC /* EarthIcon.png in Resources */,
 				0BA61DF119C4DFF900184149 /* InfoPlist.strings in Resources */,
 				0BA61DFA19C4DFF900184149 /* Main.storyboard in Resources */,
+				0B2648E219C53D3A00049CCC /* Grass.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA61DFD19C4DFF900184149 /* ViewController.m in Sources */,
+				0B2648E019C535F300049CCC /* RoomViewController.m in Sources */,
 				0B2648D719C511D100049CCC /* textEntryCell.m in Sources */,
 				0BA61DF719C4DFF900184149 /* AppDelegate.m in Sources */,
 				0BA61E3E19C4F08C00184149 /* RoomsViewController.m in Sources */,

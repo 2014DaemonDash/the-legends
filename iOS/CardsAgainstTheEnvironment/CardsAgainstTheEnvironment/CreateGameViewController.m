@@ -88,7 +88,7 @@
     }
     if([_playerNames count] == numPlayers){
         room[@"players"] = _playerNames;
-        room[@"currentPlayer"] = [[_playerNames objectAtIndex:0] objectForKey:@"userId"];
+        room[@"currentPlayer"] = _user.username;
         room[@"currentJudge"] = _user.username;
         PFQuery *whiteQuery = [PFQuery queryWithClassName:@"WhiteCards"];
         PFQuery *blackQuery = [PFQuery queryWithClassName:@"BlackCards"];
