@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RoomCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *roomNameLabel;
 
 @end

@@ -11,7 +11,7 @@
 #import "CreateGameViewController.h"
 
 @interface RoomsViewController()
-@property (strong, nonatomic) NSArray *roomList;
+@property (strong, nonatomic) NSMutableArray *roomList;
 @end
 
 @implementation RoomsViewController{
@@ -19,15 +19,24 @@
 
 
 -(void)viewDidLoad{
-    _roomList = [[NSArray alloc] initWithArray:_user[@"rooms"]];
+    _roomList = [[NSMutableArray alloc] init];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     NSLog(@"User: %@", [_user description]);
+    [_roomList removeAllObjects];
+    PFQuery *roomQuery = [PFQuery queryWithClassName:@"Room"];
+    [roomQuery findObjectsInBackgroundWithBlock:^(NSArray *rooms, NSError *error) {
+        for(PFObject *room in rooms){
+            NSLog(@"%@", [room objectForKey:@"name"]);
+            [_roomList addObject:room];
+        }
+        [self.collectionView reloadData];
+    }];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 1;
+    return [_roomList count];
 }
 
 - (UIEdgeInsets)collectionView:
@@ -37,6 +46,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RoomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Room" forIndexPath:indexPath];
+    [cell.roomNameLabel setText:[[_roomList objectAtIndex:indexPath.row] objectForKey:@"name"]];
     return cell;
 }
 

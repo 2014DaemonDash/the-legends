@@ -77,24 +77,54 @@
         if([cell.textField.text isEqualToString:@""]){
             NSLog(@"Please enter a name for all fields");
         }else{
-            NSDictionary *player = @{@"cardsInHand":@"0",@"points":@"0",@"userId":cell.textField.text};
-            [_playerNames addObject:player];
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"username" equalTo:cell.textField.text];
+            NSArray *users = [query findObjects];
+            if(users != nil && [users count] != 0){
+                NSDictionary *player = @{@"cardsInHand":@"0",@"points":@"0",@"userId":cell.textField.text};
+                [_playerNames addObject:player];
+            }
         }
     }
     if([_playerNames count] == numPlayers){
         room[@"players"] = _playerNames;
         room[@"currentPlayer"] = [[_playerNames objectAtIndex:0] objectForKey:@"userId"];
         room[@"currentJudge"] = _user.username;
-        PFQuery *whiteQuery = [PFQuery queryWithClassName:@"whiteCards"];
-        PFQuery *blackQuery = [PFQuery queryWithClassName:@"blackCards"];
-        room[@"whiteDeck"] = [whiteQuery findObjects];
-        room[@"blackDeck"] = [blackQuery findObjects];
-        [room saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            [_user[@"rooms"] addObject:[room objectId]];
-            [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if(succeeded){
-                    [self dismissViewControllerAnimated:YES completion:nil];
+        PFQuery *whiteQuery = [PFQuery queryWithClassName:@"WhiteCards"];
+        PFQuery *blackQuery = [PFQuery queryWithClassName:@"BlackCards"];
+        [whiteQuery findObjectsInBackgroundWithBlock:^(NSArray *whiteCards, NSError *error) {
+            NSMutableArray *whiteDeck = [[NSMutableArray alloc] init];
+            for(NSDictionary *whiteCard in whiteCards){
+                [whiteDeck addObject:[whiteCard objectForKey:@"cardId"]];
+            }
+            room[@"whiteDeck"] = whiteDeck;
+            [blackQuery findObjectsInBackgroundWithBlock:^(NSArray *blackCards, NSError *error) {
+                NSMutableArray *blackDeck = [[NSMutableArray alloc] init];
+                for(NSDictionary *blackCard in blackCards){
+                    [blackDeck addObject:[blackCard objectForKey:@"cardId"]];
                 }
+                room[@"blackDeck"] = blackDeck;
+                
+                PFACL *defaultACL = [PFACL ACL];
+                [defaultACL setPublicReadAccess:NO];
+                for(NSDictionary *player in _playerNames){
+                    PFQuery *userQuery = [PFUser query];
+                    [userQuery whereKey:@"username" equalTo:[player objectForKey:@"userId"]];
+                    PFUser *playerUser = [[userQuery findObjects] firstObject];
+                    [defaultACL setReadAccess:YES forUser:playerUser];
+                }
+                [defaultACL setReadAccess:YES forUser:_user];
+                [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+                [room setACL:defaultACL];
+                [room saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    NSDictionary *roomInfo = @{@"roomId":[room objectId], @"roomName":room[@"name"]};
+                                        [_user[@"rooms"] addObject:roomInfo];
+                    [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if(succeeded){
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                        }
+                    }];
+                }];
             }];
         }];
     }else{
