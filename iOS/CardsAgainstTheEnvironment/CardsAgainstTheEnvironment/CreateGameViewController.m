@@ -81,13 +81,13 @@
             [query whereKey:@"username" equalTo:cell.textField.text];
             NSArray *users = [query findObjects];
             if(users != nil && [users count] != 0){
-                NSDictionary *player = @{@"cardsInHand":@"0",@"points":@"0",@"userId":cell.textField.text};
+                NSDictionary *player = @{@"cardsInHand":@[],@"points":@"0",@"userId":cell.textField.text};
                 [_playerNames addObject:player];
             }
         }
     }
     if([_playerNames count] == numPlayers){
-        NSDictionary *player = @{@"cardsInHand":@"0",@"points":@"0",@"userId":_user.username};
+        NSMutableDictionary *player = [@{@"cardsInHand":@[],@"points":@"0",@"userId":_user.username} mutableCopy];
         [_playerNames addObject:player];
         room[@"players"] = _playerNames;
         room[@"currentPlayer"] = _user.username;
@@ -108,17 +108,39 @@
                 }
                 room[@"blackDeck"] = blackDeck;
                 
-                NSMutableArray *allPlayers = [[NSMutableArray alloc] init];
+                //NSMutableArray *allPlayers = [[NSMutableArray alloc] init];
                 PFACL *defaultACL = [PFACL ACL];
                 [defaultACL setPublicReadAccess:NO];
-                for(NSDictionary *player in _playerNames){
+                for(int p = 0; p < [room[@"players"] count]; p++){
+                    NSDictionary *player = [_playerNames objectAtIndex:p];
                     PFQuery *userQuery = [PFUser query];
-                    [allPlayers addObject:[player objectForKey:@"userId"]];
+                    //[allPlayers addObject:[player objectForKey:@"userId"]];
                     [userQuery whereKey:@"username" equalTo:[player objectForKey:@"userId"]];
                     PFUser *playerUser = [[userQuery findObjects] firstObject];
+                    NSMutableArray *playerHand = [[NSMutableArray alloc] init];
+                    for(int i = 0; i < 7; i++){
+                        int r = arc4random_uniform([room[@"whiteDeck"] count]);
+                        [playerHand addObject: [room[@"whiteDeck"] objectAtIndex:r]];
+                        [room[@"whiteDeck"] removeObjectAtIndex:r];
+                    }
+                    NSMutableDictionary *roomPlayers = [[room[@"players"] objectAtIndex:p] mutableCopy];
+                    [roomPlayers setObject:playerHand forKey:@"cardsInHand"];
+                    [room[@"players"] setObject:roomPlayers atIndex:p];
                     [defaultACL setReadAccess:YES forUser:playerUser];
                     [defaultACL setWriteAccess:YES forUser:playerUser];
+            
                 }
+                
+                NSMutableArray *playerHand = [[NSMutableArray alloc] init];
+                for(int i = 0; i < 7; i++){
+                    int r = arc4random_uniform([room[@"whiteDeck"] count]);
+                    [playerHand addObject: [room[@"whiteDeck"] objectAtIndex:r]];
+                    [room[@"whiteDeck"] removeObjectAtIndex:r];
+                }
+                NSMutableDictionary *roomPlayers = [[room[@"players"] objectAtIndex:[room[@"players"] count]-1] mutableCopy];
+                [roomPlayers setObject:playerHand forKey:@"cardsInHand"];
+                [room[@"players"] setObject:roomPlayers atIndex:[room[@"players"] count]-1];
+
                 [defaultACL setReadAccess:YES forUser:_user];
                 [defaultACL setWriteAccess:YES forUser:_user];
 

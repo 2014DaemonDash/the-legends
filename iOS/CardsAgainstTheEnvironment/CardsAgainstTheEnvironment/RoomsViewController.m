@@ -16,6 +16,7 @@
 
 @implementation RoomsViewController{
     PFObject *room;
+    BOOL roomsLoaded;
 }
 
 
@@ -24,16 +25,26 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    roomsLoaded = NO;
     NSLog(@"User: %@", [_user description]);
     [_roomList removeAllObjects];
     PFQuery *roomQuery = [PFQuery queryWithClassName:@"Room"];
     [roomQuery findObjectsInBackgroundWithBlock:^(NSArray *rooms, NSError *error) {
-        for(PFObject *room in rooms){
-            NSLog(@"%@", [room objectForKey:@"name"]);
-            [_roomList addObject:room];
+        roomsLoaded = YES;
+        for(PFObject *aRoom in rooms){
+            NSLog(@"%@", [aRoom objectForKey:@"name"]);
+            [_roomList addObject:aRoom];
         }
         [self.collectionView reloadData];
     }];
+}
+
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if(roomsLoaded){
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

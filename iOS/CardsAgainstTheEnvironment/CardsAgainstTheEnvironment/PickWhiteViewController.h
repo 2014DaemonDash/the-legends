@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) PFObject *room;
 @property (strong, nonatomic) PFUser *user;
+@property (strong, nonatomic) NSString *blackContent;
 @property (strong, nonatomic) NSString *type;
 
 @end

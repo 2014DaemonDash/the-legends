@@ -502,6 +502,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="iTY-yk-Bk1" kind="modal" identifier="Judge" id="eFb-7r-AMl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.7725490196" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -510,7 +513,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="ygD-qk-CdJ"/>
                         <barButtonItem key="rightBarButtonItem" title="View" id="z2B-s3-xxf">
                             <connections>
-                                <segue destination="iTY-yk-Bk1" kind="modal" id="4GU-pD-2qv"/>
+                                <segue destination="iTY-yk-Bk1" kind="modal" identifier="View" id="4GU-pD-2qv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -533,4 +536,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="4GU-pD-2qv"/>
+    </inferredMetricsTieBreakers>
 </document>
