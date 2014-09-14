@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
+import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -42,6 +43,8 @@ public class AddRoomActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_room);
+		
+		Parse.initialize(this, "KfRZwxhtH70yJC1aUGr7kaS53UO7rRjXBuLukpb4", "UP8vGfiIB6kIRrursaeE1A7r59YGYUpWUluTeRoR");
 		
 		String roomHelp = "Room";
 		String player1Help = "Player " + player;

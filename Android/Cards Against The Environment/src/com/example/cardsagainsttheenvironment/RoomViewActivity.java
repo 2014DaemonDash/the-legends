@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
+import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseException;
@@ -30,6 +31,8 @@ public class RoomViewActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_room_view);
+		
+		Parse.initialize(this, "KfRZwxhtH70yJC1aUGr7kaS53UO7rRjXBuLukpb4", "UP8vGfiIB6kIRrursaeE1A7r59YGYUpWUluTeRoR");
 		
 		currentUser = ParseUser.getCurrentUser();
 		if (currentUser == null)
@@ -73,6 +76,7 @@ public class RoomViewActivity extends Activity {
                 	choose.setText("Choose Card");
                 	choose.setEnabled(true);
                 	judge.setVisibility(0);
+                	judge.setClickable(false);
                 }
                 
             } else {

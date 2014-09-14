@@ -38,6 +38,7 @@
 		        android:background="@drawable/white_background_list" >
 		        
 			   	<TextView
+			   	    android:id="@+id/Card1card"
 					android:layout_width="match_parent"
 				    android:layout_height="match_parent"
 				    android:gravity="center"
@@ -53,9 +54,11 @@
 		        android:id="@+id/Card2"
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
+		        android:layout_marginRight="15dp"
 		        android:background="@drawable/white_background_list" >
 		        
 			   	<TextView
+			   	    android:id="@+id/Card2card"
 					android:layout_width="match_parent"
 				    android:layout_height="match_parent"
 				    android:gravity="center"
@@ -71,9 +74,11 @@
 		        android:id="@+id/Card3"
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
+		        android:layout_marginRight="15dp"
 		        android:background="@drawable/white_background_list" >
 		        
 			   	<TextView
+			   	    android:id="@+id/Card3card"
 					android:layout_width="match_parent"
 				    android:layout_height="match_parent"
 				    android:gravity="center"
@@ -89,9 +94,11 @@
 		        android:id="@+id/Card4"
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
+		        android:layout_marginRight="15dp"
 		        android:background="@drawable/white_background_list" >
 		        
 			   	<TextView
+			   	    android:id="@+id/Card4card"
 					android:layout_width="match_parent"
 				    android:layout_height="match_parent"
 				    android:gravity="center"
@@ -107,9 +114,11 @@
 		        android:id="@+id/Card5"
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
+		        android:layout_marginRight="15dp"
 		        android:background="@drawable/white_background_list" >
 		        
 			   	<TextView
+			   	    android:id="@+id/Card5card"
 					android:layout_width="match_parent"
 				    android:layout_height="match_parent"
 				    android:gravity="center"
@@ -125,9 +134,11 @@
 		        android:id="@+id/Card6"
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
+		        android:layout_marginRight="15dp"
 		        android:background="@drawable/white_background_list" >
 		        
 			   	<TextView
+			   	    android:id="@+id/Card6card"
 					android:layout_width="match_parent"
 				    android:layout_height="match_parent"
 				    android:gravity="center"
@@ -143,9 +154,11 @@
 		        android:id="@+id/Card7"
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
+		        android:layout_marginRight="15dp"
 		        android:background="@drawable/white_background_list" >
 		        
 			   	<TextView
+			   	    android:id="@+id/Card7card"
 					android:layout_width="match_parent"
 				    android:layout_height="match_parent"
 				    android:gravity="center"
