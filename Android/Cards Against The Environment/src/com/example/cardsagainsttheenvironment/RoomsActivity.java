@@ -83,6 +83,10 @@ public class RoomsActivity extends Activity {
 			                        	Log.d("isJudge", isJudge + "");
 			                        	
 			                        	i.putExtra("isJudge", isJudge);
+			                        	
+			                        	Log.d("id?", globalRoomList.get(linearLayouts.get(l)).getObjectId());
+			                        	i.putExtra("roomId", globalRoomList.get(linearLayouts.get(l)).getObjectId());
+
 			                            startActivity(i);
 		                        	} else {
 		                        		Log.d("Error", "");

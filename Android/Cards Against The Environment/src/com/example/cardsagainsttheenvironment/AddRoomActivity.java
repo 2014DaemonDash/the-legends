@@ -173,7 +173,9 @@ public class AddRoomActivity extends Activity {
 						            	            newRoom.saveInBackground();
 						            	            
 						            	            Intent i = new Intent(ara, RoomViewActivity.class);
-						            	            i.putExtra("isJudge", true);
+						            	            
+						            	            Log.d("id?",newRoom.getObjectId());
+						            	            i.putExtra("roomId", newRoom.getObjectId());
 						            	            
 						            	            startActivity(i);
 						            	        } else {

@@ -2,6 +2,8 @@ package com.example.cardsagainsttheenvironment;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.Button;
 
@@ -14,6 +16,11 @@ public class PickWhiteActivity extends Activity {
 		
 		Button play = (Button) findViewById(R.id.play_card_button);
 		play.setEnabled(false);
+		
+		Intent i = getIntent();
+        
+        String roomId = i.getExtras().getString("roomId");
+        Log.d("roomId", roomId);
 		
 		//select white cards
 		

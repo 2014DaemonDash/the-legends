@@ -66,6 +66,96 @@
 				    android:text="@string/default_black_card"/>
 		        
 		    </RelativeLayout>
+		    
+            <RelativeLayout
+		        android:id="@+id/Card3"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:background="@drawable/white_background_list" >
+		        
+			   	<TextView
+					android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:gravity="center"
+				    android:layout_centerInParent="true"
+				    android:layout_margin="15dp"
+				    android:padding="15dp"
+				    android:textSize="20sp"
+				    android:text="@string/default_black_card"/>
+		        
+		    </RelativeLayout>
+		    
+            <RelativeLayout
+		        android:id="@+id/Card4"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:background="@drawable/white_background_list" >
+		        
+			   	<TextView
+					android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:gravity="center"
+				    android:layout_centerInParent="true"
+				    android:layout_margin="15dp"
+				    android:padding="15dp"
+				    android:textSize="20sp"
+				    android:text="@string/default_black_card"/>
+		        
+		    </RelativeLayout>
+		    
+            <RelativeLayout
+		        android:id="@+id/Card5"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:background="@drawable/white_background_list" >
+		        
+			   	<TextView
+					android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:gravity="center"
+				    android:layout_centerInParent="true"
+				    android:layout_margin="15dp"
+				    android:padding="15dp"
+				    android:textSize="20sp"
+				    android:text="@string/default_black_card"/>
+		        
+		    </RelativeLayout>
+		    
+            <RelativeLayout
+		        android:id="@+id/Card6"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:background="@drawable/white_background_list" >
+		        
+			   	<TextView
+					android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:gravity="center"
+				    android:layout_centerInParent="true"
+				    android:layout_margin="15dp"
+				    android:padding="15dp"
+				    android:textSize="20sp"
+				    android:text="@string/default_black_card"/>
+		        
+		    </RelativeLayout>
+		    
+            <RelativeLayout
+		        android:id="@+id/Card7"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:background="@drawable/white_background_list" >
+		        
+			   	<TextView
+					android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:gravity="center"
+				    android:layout_centerInParent="true"
+				    android:layout_margin="15dp"
+				    android:padding="15dp"
+				    android:textSize="20sp"
+				    android:text="@string/default_black_card"/>
+		        
+		    </RelativeLayout>
             
         </LinearLayout>
     </HorizontalScrollView>
