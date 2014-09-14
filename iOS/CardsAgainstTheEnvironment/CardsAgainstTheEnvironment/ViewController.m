@@ -62,6 +62,17 @@
     [_passwordField resignFirstResponder];
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if([textField isEqual:_usernameField]){
+        [_usernameField resignFirstResponder];
+        [_passwordField becomeFirstResponder];
+    }else{
+        [_passwordField resignFirstResponder];
+        [self performSelector:@selector(login:) withObject:self];
+    }
+    return YES;
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"Login"]){
         RoomsViewController *vc = (RoomsViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];

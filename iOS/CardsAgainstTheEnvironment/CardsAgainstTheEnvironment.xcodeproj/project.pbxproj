@@ -15,6 +15,8 @@
 		0B2648E519C547E500049CCC /* PickWhiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2648E419C547E500049CCC /* PickWhiteViewController.m */; };
 		0B71091D19C5EDC8000FBCF7 /* poop.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B71091C19C5EDC8000FBCF7 /* poop.png */; };
 		0B71091F19C5F74E000FBCF7 /* trash-empty-leaf.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B71091E19C5F74E000FBCF7 /* trash-empty-leaf.png */; };
+		0B71092119C5F87F000FBCF7 /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B71092019C5F87F000FBCF7 /* 120x120.png */; };
+		0B71092319C5F8D1000FBCF7 /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B71092219C5F8D1000FBCF7 /* 80x80.png */; };
 		0BA61DE719C4DFF900184149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DE619C4DFF900184149 /* Foundation.framework */; };
 		0BA61DE919C4DFF900184149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DE819C4DFF900184149 /* CoreGraphics.framework */; };
 		0BA61DEB19C4DFF900184149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA61DEA19C4DFF900184149 /* UIKit.framework */; };
@@ -71,6 +73,8 @@
 		0B2648E419C547E500049CCC /* PickWhiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickWhiteViewController.m; sourceTree = "<group>"; };
 		0B71091C19C5EDC8000FBCF7 /* poop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poop.png; sourceTree = "<group>"; };
 		0B71091E19C5F74E000FBCF7 /* trash-empty-leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trash-empty-leaf.png"; sourceTree = "<group>"; };
+		0B71092019C5F87F000FBCF7 /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
+		0B71092219C5F8D1000FBCF7 /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
 		0BA61DE319C4DFF900184149 /* CardsAgainstTheEnvironment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsAgainstTheEnvironment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA61DE619C4DFF900184149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0BA61DE819C4DFF900184149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,6 +157,8 @@
 		0BA61DDA19C4DFF900184149 = {
 			isa = PBXGroup;
 			children = (
+				0B71092219C5F8D1000FBCF7 /* 80x80.png */,
+				0B71092019C5F87F000FBCF7 /* 120x120.png */,
 				0B2648DC19C531B200049CCC /* EarthIcon.png */,
 				0B2648E119C53D3A00049CCC /* Grass.jpg */,
 				0B71091C19C5EDC8000FBCF7 /* poop.png */,
@@ -275,9 +281,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0BA61DE219C4DFF900184149 /* CardsAgainstTheEnvironment */ = {
+		0BA61DE219C4DFF900184149 /* EcoCards */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0BA61E1519C4DFF900184149 /* Build configuration list for PBXNativeTarget "CardsAgainstTheEnvironment" */;
+			buildConfigurationList = 0BA61E1519C4DFF900184149 /* Build configuration list for PBXNativeTarget "EcoCards" */;
 			buildPhases = (
 				0BA61DDF19C4DFF900184149 /* Sources */,
 				0BA61DE019C4DFF900184149 /* Frameworks */,
@@ -287,7 +293,7 @@
 			);
 			dependencies = (
 			);
-			name = CardsAgainstTheEnvironment;
+			name = EcoCards;
 			productName = CardsAgainstTheEnvironment;
 			productReference = 0BA61DE319C4DFF900184149 /* CardsAgainstTheEnvironment.app */;
 			productType = "com.apple.product-type.application";
@@ -337,7 +343,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0BA61DE219C4DFF900184149 /* CardsAgainstTheEnvironment */,
+				0BA61DE219C4DFF900184149 /* EcoCards */,
 				0BA61E0319C4DFF900184149 /* CardsAgainstTheEnvironmentTests */,
 			);
 		};
@@ -351,7 +357,9 @@
 				0BA61DFF19C4DFF900184149 /* Images.xcassets in Resources */,
 				0B2648DD19C531B200049CCC /* EarthIcon.png in Resources */,
 				0BA61DF119C4DFF900184149 /* InfoPlist.strings in Resources */,
+				0B71092319C5F8D1000FBCF7 /* 80x80.png in Resources */,
 				0BA61DFA19C4DFF900184149 /* Main.storyboard in Resources */,
+				0B71092119C5F87F000FBCF7 /* 120x120.png in Resources */,
 				0B2648E219C53D3A00049CCC /* Grass.jpg in Resources */,
 				0B71091D19C5EDC8000FBCF7 /* poop.png in Resources */,
 				0B71091F19C5F74E000FBCF7 /* trash-empty-leaf.png in Resources */,
@@ -400,7 +408,7 @@
 /* Begin PBXTargetDependency section */
 		0BA61E0A19C4DFF900184149 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0BA61DE219C4DFF900184149 /* CardsAgainstTheEnvironment */;
+			target = 0BA61DE219C4DFF900184149 /* EcoCards */;
 			targetProxy = 0BA61E0919C4DFF900184149 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -593,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0BA61E1519C4DFF900184149 /* Build configuration list for PBXNativeTarget "CardsAgainstTheEnvironment" */ = {
+		0BA61E1519C4DFF900184149 /* Build configuration list for PBXNativeTarget "EcoCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0BA61E1619C4DFF900184149 /* Debug */,

@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0BA61DE219C4DFF900184149"
                BuildableName = "CardsAgainstTheEnvironment.app"
-               BlueprintName = "CardsAgainstTheEnvironment"
+               BlueprintName = "EcoCards"
                ReferencedContainer = "container:CardsAgainstTheEnvironment.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0BA61DE219C4DFF900184149"
             BuildableName = "CardsAgainstTheEnvironment.app"
-            BlueprintName = "CardsAgainstTheEnvironment"
+            BlueprintName = "EcoCards"
             ReferencedContainer = "container:CardsAgainstTheEnvironment.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0BA61DE219C4DFF900184149"
             BuildableName = "CardsAgainstTheEnvironment.app"
-            BlueprintName = "CardsAgainstTheEnvironment"
+            BlueprintName = "EcoCards"
             ReferencedContainer = "container:CardsAgainstTheEnvironment.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,7 +81,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0BA61DE219C4DFF900184149"
             BuildableName = "CardsAgainstTheEnvironment.app"
-            BlueprintName = "CardsAgainstTheEnvironment"
+            BlueprintName = "EcoCards"
             ReferencedContainer = "container:CardsAgainstTheEnvironment.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
