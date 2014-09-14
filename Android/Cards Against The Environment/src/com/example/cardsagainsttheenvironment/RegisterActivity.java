@@ -1,6 +1,7 @@
 package com.example.cardsagainsttheenvironment;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -54,12 +55,9 @@ public class RegisterActivity extends Activity {
 		EditText password = (EditText) findViewById(R.id.password_register);
 		EditText email = (EditText) findViewById(R.id.email);
 		
-		HashMap[] rooms = {};
-		
 		user.setUsername(username.getText().toString());
 		user.setPassword(password.getText().toString());
 		user.setEmail(email.getText().toString());
-		user.put("rooms", rooms);
 		
 		user.signUpInBackground(new SignUpCallback() {
 			public void done(ParseException e) {
